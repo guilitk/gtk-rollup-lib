@@ -2799,68 +2799,6 @@ if (process.env.NODE_ENV === 'production') {
 var reactExports = react.exports;
 var React = /*@__PURE__*/getDefaultExportFromCjs(reactExports);
 
-var classnames = {exports: {}};
-
-/*!
-	Copyright (c) 2018 Jed Watson.
-	Licensed under the MIT License (MIT), see
-	http://jedwatson.github.io/classnames
-*/
-
-(function (module) {
-	/* global define */
-
-	(function () {
-
-		var hasOwn = {}.hasOwnProperty;
-
-		function classNames() {
-			var classes = [];
-
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-
-				var argType = typeof arg;
-
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					if (arg.length) {
-						var inner = classNames.apply(null, arg);
-						if (inner) {
-							classes.push(inner);
-						}
-					}
-				} else if (argType === 'object') {
-					if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes('[native code]')) {
-						classes.push(arg.toString());
-						continue;
-					}
-
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-
-			return classes.join(' ');
-		}
-
-		if (module.exports) {
-			classNames.default = classNames;
-			module.exports = classNames;
-		} else {
-			window.classNames = classNames;
-		}
-	}()); 
-} (classnames));
-
-var classnamesExports = classnames.exports;
-var classNames = /*@__PURE__*/getDefaultExportFromCjs(classnamesExports);
-
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
@@ -2892,8 +2830,8 @@ var css_248z = "@import \"https://assets.procempa.com.br/assets/google-fonts/not
 styleInject(css_248z);
 
 const Button = (props) => {
-    return React.createElement("button", { className: classNames("br-button", "primary") },
-        React.createElement("i", { className: classNames("fa fa-spin fa-spinner") }),
+    return React.createElement("button", { className: "br-button primary" },
+        React.createElement("i", { className: "fa fa-spin fa-spinner" }),
         props.label);
 };
 
