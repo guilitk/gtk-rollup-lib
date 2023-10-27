@@ -1,7 +1,10 @@
 import React from 'react';
 
 interface ButtonProps {
-    classes?: string[];
+    density: "medium";
+    style: "brand";
+    type: "button";
+    emphasis: "primary" | "tertiary";
     faIconClasses?: string[];
     progress?: boolean;
     children: React.ReactNode;

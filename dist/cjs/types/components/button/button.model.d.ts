@@ -1,6 +1,9 @@
 import React from "react";
 export interface ButtonProps {
-    classes?: string[];
+    density: "medium";
+    style: "brand";
+    type: "button";
+    emphasis: "primary" | "tertiary";
     faIconClasses?: string[];
     progress?: boolean;
     children: React.ReactNode;
