@@ -1,3 +1,8 @@
+import React from "react";
 export interface ButtonProps {
-    label: string;
+    classes?: string;
+    faIconClasses?: string;
+    progress?: boolean;
+    children: React.ReactNode;
+    onClick?: () => any;
 }
