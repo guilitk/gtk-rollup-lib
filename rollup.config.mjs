@@ -18,17 +18,13 @@ export default [
                 format: "esm",
                 sourcemap: true
             }],
-        plugins: [postcss({
-            extract: false,
-            modules: true,
-            use: ['sass'],
-        }), resolve(), commonjs(), typescript({tsconfig: "./tsconfig.json"})]
+        plugins: [postcss(), resolve(), commonjs(), typescript({tsconfig: "./tsconfig.json"})]
     },
     {
         input: "dist/esm/types/index.d.ts",
         output: [{file: "dist/index.d.ts", format: "esm"}],
         plugins: [dts()],
-        external: [/\.scss$/]
+        external: [/\.css$/]
     }
 ]
 

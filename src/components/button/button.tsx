@@ -2,7 +2,7 @@ import {ButtonProps} from "./button.model";
 import React from "react";
 import cn from "classnames";
 import {Icon} from "../icon/icon";
-import "./button.module.scss";
+import "./button.css";
 
 export const Button = (props: ButtonProps) => {
     return (
