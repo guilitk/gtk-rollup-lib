@@ -7489,12 +7489,12 @@ var classnames = {exports: {}};
 var classnamesExports = classnames.exports;
 var cn = /*@__PURE__*/getDefaultExportFromCjs(classnamesExports);
 
-var css_248z = "@import \"./base.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans/noto-sans.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-display/noto-sans-display.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-mono/noto-sans-mono.css\";\n@import \"https://assets.procempa.com.br/assets/font-awesome/6.4.0/css/all.css\";\n@import \"./tokens.css\";\n@import \"./components.css\";\n\n\n";
+var css_248z = "@import \"./base.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans/noto-sans.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-display/noto-sans-display.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-mono/noto-sans-mono.css\";\n@import \"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\";\n@import \"./tokens.css\";\n@import \"./components.css\";\n\n\n";
 styleInject(css_248z);
 
 const Button = (props) => {
     return (React.createElement("button", { onClick: props.onClick, className: cn("br-button", props.emphasis) },
-        (props.faIconClasses && props.faIconClasses.length > 0) && React.createElement("i", { className: cn(props.faIconClasses) }),
+        props.faIcon && React.createElement(FontAwesomeIcon, { icon: faSpinner }),
         !props.progress && props.children,
         props.progress === true && React.createElement(FontAwesomeIcon, { icon: faSpinner, spin: true })));
 };
