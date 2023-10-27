@@ -7515,7 +7515,7 @@ const Icon = (props) => {
     return getIcon();
 };
 
-var css_248z = "\n\n.button {\n  padding: 12px 16px;\n  font-size: 14px;\n  line-height: 16px;\n  font-weight: 600;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n\n  & > svg:first-child {\n    margin-right: 8px;\n  }\n}\n\n.primary {\n  background-color: dodgerblue;\n  color: white;\n  border: 4px solid dodgerblue;\n\n  &:focus {\n    border: 4px solid #FF7F50;\n  }\n\n  &:hover {\n    cursor: pointer;\n    border: 4px solid #1A4CA8\n  }\n\n  &:active {\n    background-color: #1A4CA8;\n    border: 4px solid #1A4CA8;\n  }\n\n  &:disabled {\n    background-color: #91B3F2;\n    border: 4px solid #91B3F2;\n\n    &:hover {\n      cursor: not-allowed;\n    }\n  }\n}\n";
+var css_248z = "\n\n.button {\n  padding: 12px 16px;\n  font-size: 14px;\n  line-height: 16px;\n  font-weight: 600;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n\n.primary {\n  background-color: dodgerblue;\n  color: white;\n  border: 4px solid dodgerblue;\n}\n";
 styleInject(css_248z);
 
 const Button = (props) => {
