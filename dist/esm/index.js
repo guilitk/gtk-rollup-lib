@@ -2888,7 +2888,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "@import \"./base.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans/noto-sans.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-display/noto-sans-display.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-mono/noto-sans-mono.css\";\n@import \"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\";\n@import \"./tokens.css\";\n@import \"./components.css\";\n\n\n";
+var css_248z = "@import \"./base.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans/noto-sans.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-display/noto-sans-display.css\";\n@import \"https://assets.procempa.com.br/assets/google-fonts/noto-sans-mono/noto-sans-mono.css\";\n@import \"./fontawesome.css\";\n@import \"./tokens.css\";\n@import \"./components.css\";\n\n\n";
 styleInject(css_248z);
 
 const Button = (props) => {
