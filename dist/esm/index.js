@@ -3679,7 +3679,7 @@ function defineIcons(prefix, icons) {
 }
 
 var _LONG_STYLE, _PREFIXES, _PREFIXES_FOR_FAMILY;
-var styles$1 = namespace.styles,
+var styles = namespace.styles,
     shims = namespace.shims;
 var LONG_STYLE = (_LONG_STYLE = {}, _defineProperty$1(_LONG_STYLE, FAMILY_CLASSIC, Object.values(PREFIX_TO_LONG_STYLE[FAMILY_CLASSIC])), _defineProperty$1(_LONG_STYLE, FAMILY_SHARP, Object.values(PREFIX_TO_LONG_STYLE[FAMILY_SHARP])), _LONG_STYLE);
 var _defaultUsablePrefix = null;
@@ -3707,7 +3707,7 @@ function getIconName(cssPrefix, cls) {
 }
 var build = function build() {
   var lookup = function lookup(reducer) {
-    return reduce(styles$1, function (o, style, prefix) {
+    return reduce(styles, function (o, style, prefix) {
       o[prefix] = reduce(style, reducer, {});
       return o;
     }, {});
@@ -3753,7 +3753,7 @@ var build = function build() {
   }); // If we have a Kit, we can't determine if regular is available since we
   // could be auto-fetching it. We'll have to assume that it is available.
 
-  var hasRegular = 'far' in styles$1 || config.autoFetchSvg;
+  var hasRegular = 'far' in styles || config.autoFetchSvg;
   var shimLookups = reduce(shims, function (acc, shim) {
     var maybeNameMaybeUnicode = shim[0];
     var prefix = shim[1];
@@ -3865,7 +3865,7 @@ function getCanonicalIcon(values) {
   var canonical = values.reduce(function (acc, cls) {
     var iconName = getIconName(config.cssPrefix, cls);
 
-    if (styles$1[cls]) {
+    if (styles[cls]) {
       cls = LONG_STYLE[family].includes(cls) ? LONG_STYLE_TO_PREFIX[family][cls] : cls;
       givenPrefix = cls;
       acc.prefix = cls;
@@ -3891,7 +3891,7 @@ function getCanonicalIcon(values) {
       acc.iconName = shim.iconName || aliasIconName || acc.iconName;
       acc.prefix = shim.prefix || acc.prefix;
 
-      if (acc.prefix === 'far' && !styles$1['far'] && styles$1['fas'] && !config.autoFetchSvg) {
+      if (acc.prefix === 'far' && !styles['far'] && styles['fas'] && !config.autoFetchSvg) {
         // Allow a fallback from the regular style to solid if regular is not available
         // but only if we aren't auto-fetching SVGs
         acc.prefix = 'fas';
@@ -3909,7 +3909,7 @@ function getCanonicalIcon(values) {
     canonical.prefix = 'fad';
   }
 
-  if (!canonical.prefix && family === FAMILY_SHARP && (styles$1['fass'] || config.autoFetchSvg)) {
+  if (!canonical.prefix && family === FAMILY_SHARP && (styles['fass'] || config.autoFetchSvg)) {
     canonical.prefix = 'fass';
     canonical.iconName = byAlias(canonical.prefix, canonical.iconName) || canonical.iconName;
   }
@@ -4420,7 +4420,7 @@ function makeLayersCounterAbstract(params) {
   return val;
 }
 
-var styles$1$1 = namespace.styles;
+var styles$1 = namespace.styles;
 function asFoundIcon(icon) {
   var width = icon[0];
   var height = icon[1];
@@ -4503,8 +4503,8 @@ function findIcon(iconName, prefix) {
       prefix = shim.prefix || prefix;
     }
 
-    if (iconName && prefix && styles$1$1[prefix] && styles$1$1[prefix][iconName]) {
-      var icon = styles$1$1[prefix][iconName];
+    if (iconName && prefix && styles$1[prefix] && styles$1[prefix][iconName]) {
+      var icon = styles$1[prefix][iconName];
       return resolve(asFoundIcon(icon));
     }
 
@@ -7516,11 +7516,10 @@ const Icon = (props) => {
 };
 
 var css_248z = ".button-module_button__Z331g {\n  padding: 12px 16px;\n  font-size: 14px;\n  line-height: 16px;\n  font-weight: 600;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.button-module_button__Z331g > svg:first-child {\n  margin-right: 8px;\n}\n\n.button-module_primary__ppbyq {\n  background-color: #457EE7;\n  color: #FFFFFF;\n  border: 4px solid #457EE7;\n}\n.button-module_primary__ppbyq:focus {\n  border: 4px solid #FF7F50;\n}\n.button-module_primary__ppbyq:hover {\n  cursor: pointer;\n  border: 4px solid #1A4CA8;\n}\n.button-module_primary__ppbyq:active {\n  background-color: #1A4CA8;\n  border: 4px solid #1A4CA8;\n}\n.button-module_primary__ppbyq:disabled {\n  background-color: #91B3F2;\n  border: 4px solid #91B3F2;\n}\n.button-module_primary__ppbyq:disabled:hover {\n  cursor: not-allowed;\n}";
-var styles = {"button":"button-module_button__Z331g","primary":"button-module_primary__ppbyq"};
 styleInject(css_248z);
 
 const Button = (props) => {
-    return (React.createElement("button", { onClick: props.onClick, className: cn(styles[props.type], styles[props.emphasis]) },
+    return (React.createElement("button", { onClick: props.onClick, className: cn(props.type, props.emphasis) },
         props.icon && React.createElement(Icon, { iconType: props.icon }),
         !props.progress && props.children,
         props.progress && React.createElement(Icon, { iconType: "progress" })));
