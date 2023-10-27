@@ -2,7 +2,7 @@
 @import "https://assets.procempa.com.br/assets/google-fonts/noto-sans/noto-sans.css";
 @import "https://assets.procempa.com.br/assets/google-fonts/noto-sans-display/noto-sans-display.css";
 @import "https://assets.procempa.com.br/assets/google-fonts/noto-sans-mono/noto-sans-mono.css";
-@import "https://assets.procempa.com.br/assets/font-awesome/6.4.0/css/all.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
 @import "./tokens.css";
 @import "./components.css";
 
