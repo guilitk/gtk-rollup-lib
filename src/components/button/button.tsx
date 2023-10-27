@@ -1,4 +1,3 @@
-import styles from "./button.module.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSpinner} from "@fortawesome/free-solid-svg-icons";
@@ -13,9 +12,8 @@ export const Button = (props: ButtonProps) => {
             className={cn(props.classes)}
         >
             {(props.faIconClasses && props.faIconClasses.length > 0) && <i className={cn(props.faIconClasses)}/>}
-            {props.children}
-            {props.progress && <FontAwesomeIcon
-                className={cn(styles.spinner)}
+            {!props.progress && props.children}
+            {props.progress === true && <FontAwesomeIcon
                 icon={faSpinner}
                 spin={true}
             />}
