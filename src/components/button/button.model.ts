@@ -1,14 +1,13 @@
-import React from "react";
-import {IconDefinition} from "@fortawesome/fontawesome-svg-core"
+import {type ReactNode} from "react";
+import {IconTypes} from "../icon/icon.model";
 
-export interface ButtonProps {
-  density: "medium";
-  style: "brand";
+export type ButtonProps = {
+  density?: "medium";
+  style?: "brand" | "danger";
   type: "button";
-  emphasis: "primary" | "tertiary";
-  faIconClasses?: string[];
-  faIcon?:IconDefinition;
+  emphasis: "primary";
+  icon?: IconTypes;
   progress?: boolean;
-  children: React.ReactNode;
+  children?: ReactNode;
   onClick?: () => any;
 }

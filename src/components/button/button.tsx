@@ -1,17 +1,18 @@
 import {ButtonProps} from "./button.model";
 import React from "react";
 import cn from "classnames";
-import "../../styles/global.css";
+import {Icon} from "../icon/icon";
+import styles from "./button.module.scss";
 
 export const Button = (props: ButtonProps) => {
     return (
         <button
             onClick={props.onClick}
-            className={cn("br-button",props.emphasis)}
+            className={cn(styles[props.type],styles[props.emphasis])}
         >
-            {props.faIcon && <i className={cn(props.faIconClasses)}></i>}
+            {props.icon && <Icon iconType={props.icon}/>}
             {!props.progress && props.children}
-            {props.progress === true && <i className={cn("fa fa-spin fa-spinner")}></i>}
+            {props.progress && <Icon iconType={"progress"}/>}
         </button>
     );
 };
